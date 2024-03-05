@@ -1,25 +1,20 @@
 #include <iostream>
 using namespace std;
-#define totalStudents 3
-struct student
+class Father
 {
-	int rollno;
-	char name[20];	
+	public:
+		void callFunction() {show();}
+		virtual void show(){cout << "This is a Father(base) class" << endl;}
 };
-int main()
+class Son : public Father
 {
-	student s[totalStudents];
-	int i;
-	for(i=0; i<totalStudents; ++i)
-	{
-		cout << "Student # " << i << endl;
-		cout << "Enter Rollno : ";
-		cin >> s[i].rollno;
-		cout << "Enter Name : ";
-		cin >> s[i].name;
-	}
-	for(i=0; i<totalStudents; ++i)
-	{
-		cout << "Student # " << i << "Rollno : " << s[i].rollno << " Name : " << s[i].name << endl;
-	}
+	public:
+		void show(){cout << "This is a Son(derived) class" << endl;}
+};
+int main(void)
+{
+	Father f;
+	Son s;
+	f.show();
+	s.show();
 }
